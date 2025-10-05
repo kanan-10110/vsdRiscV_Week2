@@ -77,9 +77,11 @@ To examine the simulation results, launch the vcd file in GTKWave
 ```
 gtkwave pre_synth_sim.vcd
 ```
-<img width="1851" height="796" alt="Pre_Synth GTK Wave" src="https://github.com/user-attachments/assets/7a3f5168-3d38-4dae-a22c-f3f02c62616e" />
-<img width="967" height="189" alt="Pre_Synth GTK Log" src="https://github.com/user-attachments/assets/9d5daf4e-f60a-4e15-b3fd-146c302c6ac3" />
-### 🧠 Behavioral-Level Simulation Signal Inspection  
+<img width="1853" height="754" alt="Pre-Synth GTK Wave" src="https://github.com/user-attachments/assets/4359b636-a21f-4485-b8ef-13fa858ce77f" />
+<img width="677" height="147" alt="Pre Synth Log " src="https://github.com/user-attachments/assets/302bae54-8f8d-45ad-a12d-3599da218ed2" />
+
+
+🧠 Behavioral-Level Simulation Signal Inspection  
 
 
 ---
@@ -284,13 +286,16 @@ read_verilog -I ./src/include ./src/module/avsdpll_stub.v
 read_verilog -I ./src/include ./src/module/avsddac_stub.v
 read_verilog -I ./src/include ./src/module/vsdbabysoc.v
 ```
-<img width="1132" height="1080" alt="Reading all Verilog files" src="https://github.com/user-attachments/assets/f3183671-6390-45b6-890c-dfa506d8220f" />
+
+<img width="1855" height="1075" alt="Reading all Verilog Files" src="https://github.com/user-attachments/assets/cf9f704b-90b0-494b-adbd-5569f6847643" />
+
 
 #### 4. Next we execute the transformation process in Yosys targeting the module vsdbabysoc as the primary architecture.
 ```
 synth -top vsdbabysoc
 ```
-<img width="1850" height="1080" alt="Synthesis of vsdbabysoc" src="https://github.com/user-attachments/assets/07a609f4-611b-4b38-8e8a-f908ab61a973" />
+<img width="658" height="854" alt="Synthezing vsdbabysoc" src="https://github.com/user-attachments/assets/94eb1cb7-fd57-455e-a6f5-795a90364b4c" />
+
 
 #### 5. Exit Yosys and prepare directory structure
 ```
@@ -301,7 +306,9 @@ mkdir -p output/synthesized
 yosys
 write_verilog output/synthesized/vsdbabysoc.synth.v
 ```
-<img width="1850" height="361" alt="Writing netlist for vsdbabysoc" src="https://github.com/user-attachments/assets/92103a26-a381-4b99-8145-a58fe1dc56a9" />
+
+<img width="742" height="284" alt="Writing the netlist" src="https://github.com/user-attachments/assets/fa10a5d1-af8f-49cf-911c-4fcc08f1ebbe" />
+
 
 ##### Yosys executes the following:
 - i). Produces a Verilog netlist — composed of fundamental gates, registers, and basic elements.
@@ -328,7 +335,9 @@ iverilog -o output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM \
 src/gls_model/sky130_fd_sc_hd.v:67667: syntax error
 src/gls_model/sky130_fd_sc_hd.v:67667: error: Invalid module item.
 ```
-<img width="1811" height="334" alt="Error at line 67667 " src="https://github.com/user-attachments/assets/ee7b46c6-e93d-451a-94a7-38d168f3dc25" />
+
+<img width="1811" height="334" alt="Error at line 67667 " src="https://github.com/user-attachments/assets/c3102b60-9419-4bf4-a9b9-7a8eb0d4fe62" />
+
 
 To correct the error, initially identified the problematic line within the sky130_fd_sc_hd.v file through the instruction:
 ```
@@ -357,14 +366,17 @@ iverilog -o output/post_synth_sim/post_synth_sim.out -DPOST_SYNTH_SIM \
 ```
 vvp output/post_synth_sim/post_synth_sim.out
 ```
-<img width="913" height="249" alt="VCD File for Post_Synth" src="https://github.com/user-attachments/assets/d1cd059c-7b55-456a-95a7-8f80c3d65f7a" />
+
+<img width="798" height="99" alt="Generated VCD File" src="https://github.com/user-attachments/assets/14b8d82b-6d3a-4930-b3f9-f0866a85afa7" />
+
     
 #### 8. Launch GTKWave for gate-level analysis through the instruction:
 ```
 gtkwave post_synth_sim.vcd
 ```
-<img width="1855" height="678" alt="Post_Synth GTK Wave" src="https://github.com/user-attachments/assets/0a41ce48-f8df-41ea-9592-e5424784ce99" />
-<img width="767" height="185" alt="Post_Synth GTK Log" src="https://github.com/user-attachments/assets/7e1899eb-652c-452c-87dd-1ffef5b7186e" />
+
+<img width="1855" height="558" alt="Post_Synthesis GTK Wave" src="https://github.com/user-attachments/assets/45532b31-be57-4258-a9f2-ead49e5bbd94" />
+
 
 ### 🧩 Gate-Level Signal Pattern Analysis — VSDBabySoC
 

@@ -339,28 +339,3 @@ Correct implementation demonstrates:
 | Icarus Verilog | `11.0+` |
 | GTKWave | `3.3.100+` |
 
----
-
-## 📝 License
-
-This project documentation is provided as-is for educational purposes.
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
-
----
-
-## 📧 Contact
-
-For questions or support, please open an issue in the repository.
-
----
-
-<div align="center">
-
-Made with ❤️ for the VLSI community
-
-</div>
